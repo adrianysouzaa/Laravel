@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
+use App\Contato;
+
 class ContatoController extends Controller
 {
     public function index()
@@ -13,6 +16,10 @@ class ContatoController extends Controller
     		(object)["nome"=>"Pedro", "tel"=>"84784578"]
 
     	];
+
+        $contato = new Contato();
+        $con = $contato->lista();
+        dd($con->nome);
 
     	return view('contato.index', compact('contatos'));
     }
